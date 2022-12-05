@@ -1,0 +1,121 @@
+.swiper__section{
+    margin-top: 4.9rem;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    background: #000;
+  }
+  
+  .swiper-slide {
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 60px;
+  }
+  
+  .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .swiper-slide .title {
+    font-size: 41px;
+    font-weight: 300;
+  }
+  
+  .swiper-slide .subtitle {
+    font-size: 21px;
+  }
+  
+  .swiper-slide .text {
+    font-size: 14px;
+    max-width: 400px;
+    line-height: 1.3;
+  }
+
+  /* .swiper1{
+    background-image: url('https://images.pexels.com/photos/298611/pexels-photo-298611.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1s');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+  } */
+  
+  .swiper1{
+    background-image: url('https://www.choice101.com/wp-content/uploads/2019/12/Family-dentistry.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+  }
+  .swiper2{
+    background-image: url('https://dentistinsteveston.com/wp-content/uploads/2017/11/5-ladies-smiles-1.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+  }
+  .swiper3{
+    background-image: url('https://i0.wp.com/localprofile.com/wp-content/uploads/2015/11/Marvel_Dental_Smile_dentist_Plano_Texas_Dr_Naderi_1.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+  }
+  .swiper4{
+    background-image: url('https://dr-simonnet-didier.chirurgiens-dentistes.fr/uploads/media/0/1592297100/gzLIN4QK1w_1592297100.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+  }
+  .mySwiper{
+    height: 530px;
+  }
+  .title{
+    color: #4ba4f1;
+    font-weight: 900;
+    box-shadow: 10px 10px 50px #4ba4f1;
+    background-color: #ffffff6e;
+    margin-top: 5rem;
+  }
+
+  .title h1{
+    font-size: 5rem;
+    font-weight: 700;
+  }
+
+  .title1{
+    width: 530px !important;
+    padding: 10px 15px;
+  }
+
+  .title2{
+    width: 380px !important;
+    padding: 10px 15px;
+  }
+  .title3{
+    width: 500px !important;
+    padding: 10px 15px;
+  }
+
+  .text{
+    color: #ffffff;
+    font-weight: 900;
+    box-shadow: 10px 10px 50px #4ba4f1;
+    background-color: #4ba3f190;
+    width: 700px !important;
+    margin-top: 2rem;
+    margin-right: 0px;
+    padding: 10px 15px;
+  }
+
+  .text p{
+    /* width: 500px; */
+    font-size: 4rem;
+    font-weight: 700;
+  }

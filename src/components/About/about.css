@@ -1,0 +1,17 @@
+.about{
+    width: 100%;
+    margin-top: 5rem;
+    margin-bottom: 7rem;
+}
+
+.img__about{
+    display: flex;
+    justify-content: center !important;
+    width: 90%;
+    border-radius: 25px;
+}
+
+.about__title h3{
+    font-size: 3rem;
+    font-weight: 700;
+}

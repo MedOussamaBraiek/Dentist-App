@@ -1,0 +1,48 @@
+.bg-home{
+    background-image: url("../../assets/images/bg1.jpg");
+    margin-top: 10rem;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container{
+    position: relative;
+}
+
+.hero__content{
+    position: absolute;
+    margin-top: 15rem;
+    margin-left: 5rem;
+}
+
+.hero__title {
+    font-weight: 700;
+    font-family: "Poppins" sans-serif;
+    color: #2d3748;
+    font-size: 4rem;
+    line-height: 70px;
+    letter-spacing: 0.005em;
+    width: 90%;
+  }
+
+  .hero__parag {
+    font-family: "Poppins" sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+  
+    letter-spacing: -0.02em;
+    width: 85%;
+  
+    color: #818ba7;
+  }
+ .hero-content p{
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+ }
+
+ .img__home{
+    height: 100vh !important;
+ }

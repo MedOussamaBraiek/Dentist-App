@@ -1,0 +1,203 @@
+.header {
+  width: 100%;
+  line-height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 11111111;
+
+  margin-top: 2.7rem;
+  background-color: #f4f7fe;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  opacity: 0.98;
+  height: 85px;
+}
+
+.navigation{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.header__shrink {
+  background-color: #f4f7fe;
+  /* box-shadow: 2px 2px 4px -2px #50e5cc; */
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  opacity: 0.98;
+  height: 85px;
+  margin-top: -0.5rem;
+}
+
+.logo {
+  display: flex !important;
+
+  color: var(--dark-orange);
+  font-size: 1.4rem;
+
+  background: linear-gradient(
+    -45deg,
+    #fff,
+    var(--dark-orange),
+    #fff,
+    var(--dark-orange)
+  );
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-text-stroke: 3px transparent;
+  -webkit-text-fill-color: #29293d;
+  transition: 0.3s;
+}
+
+.logo h2{
+  margin-top: 0.5rem;
+}
+
+.logo img{
+  margin-top: 0.6rem;
+  margin-right: 0.5rem;
+  height: 35px;
+}
+
+
+
+/* .house {
+  padding-top: 0.7rem;
+} */
+
+.logo h5:hover {
+  animation: logoRotate 1s ease-out forwards;
+  cursor: pointer;
+}
+
+@keyframes logoRotate {
+  to {
+    transform: rotate(6deg);
+  }
+}
+
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  column-gap: 2.7rem;
+
+  list-style: none;
+}
+
+.nav__item{
+  height: 70px;
+}
+
+.nav__item a {
+  color: #2d3748;
+  transition: 0.3s;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+
+  font-size: 1.23rem;
+  line-height: 26px;
+  letter-spacing: -0.02em;
+}
+
+.nav__item{
+  position: relative;
+}
+
+.nav__item a::after{
+  content: '';
+  opacity: 0;
+  transition: all 0.2s;
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #4ba4f1;
+}
+
+.nav__item a:hover::after{
+  opacity: 1;
+}
+
+.signup {
+  background: #4ba4f1;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+
+  padding: 10px 20px;
+  line-height: 25px;
+
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.signup__text:hover {
+  color: #fff !important;
+}
+
+.mobile__menu {
+  color: #2d3748;
+  font-size: 1.3rem;
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#344b4783, #14141f83);
+    z-index: 222222;
+    display: none;
+  }
+
+  .active__menu {
+    display: block;
+  }
+
+  .nav__list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: #4ba4f1;
+    opacity: 0.8;
+    z-index: 333333;
+    flex-direction: column;
+    padding-top: 40px;
+  }
+
+  .mobile__menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .signup {
+    background-color: #fff;
+    color: #2d3748;
+    margin-top: 2rem;
+  }
+
+  .signup:hover {
+    color: #4ba4f1;
+  }
+
+  .nav__item a:hover {
+    color: #fff !important;
+  }
+}
+
+.karim-logo{
+  margin-top: 0rem !important;
+  height: 50px !important;
+  width: 180px;
+}
