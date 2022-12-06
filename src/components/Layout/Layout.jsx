@@ -14,8 +14,8 @@ const Layout = () => {
       <Phone />
       <Header />
       <Swiper />
-      <About />
       <Docteur />
+      <About />
       <Services />
       <Form />
       <Cabinet />

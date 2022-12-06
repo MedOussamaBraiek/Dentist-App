@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Form, FormGroup, Label, Input, Button} from 'reactstrap';
+import { Container, Form, FormGroup, Label, Input, Button, Alert} from 'reactstrap';
 import './form.css';
 
 const FormSection = () => {
@@ -9,7 +9,7 @@ const FormSection = () => {
     const [phone, setPhone] = React.useState("");
     // const [genre, setGenre] = React.useState("");
     const [message, setMessage] = React.useState("");
-    const [date, setDate] = React.useState('homme');
+    const [date, setDate] = React.useState(null);
 
     const [formData, setData] = React.useState({ name: "", lastName: "", email: "", phone: "",
      message: "", date: null });
@@ -50,15 +50,16 @@ const FormSection = () => {
 
   const validate = (values) => {
     const errors = {};
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (!values.name) {
       errors.name = "Le Nom est Obligatoire !";
     }
     if (!values.lastName) {
       errors.lastName = "Le Prénom est Obligatoire!";
     }
-    // if (!values.email) {
-    //   errors.email = "Email est Obligatoire!";
-    // }
+    if (!values.email.match(mailformat)) {
+      errors.email = "Mauvais format!";
+    }
     if (!values.phone) {
       errors.phone = "Le Numéro de téléphone est Obligatoire!";
     }else if (values.phone.length !== 8) {
@@ -76,11 +77,10 @@ const FormSection = () => {
       const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmit(true);
+        e.target.reset();
         setFormErrors(validate(formData));
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
+        if (Object.keys(formErrors).length === 0) {
             const patient = { name, lastName, email, phone, message, date };
-            console.log(patient);
-            console.log(JSON.stringify(patient));
             //const patient1 = { name:"name", lastName:"lastName", email:"email", phone:"phone", message:"message" };
             fetch(`http://localhost:5000/patients/add`, {
             method: "POST",
@@ -111,6 +111,7 @@ const FormSection = () => {
                 onSubmit={(e) => {
                     e.preventDefault();
                     handleSubmit(e);
+                    e.target.reset();
                   }}
             >
                     <FormGroup className='w-100'>
@@ -164,9 +165,9 @@ const FormSection = () => {
                         />
                     </FormGroup>
                     {/* {formErrors.email && <Alert color="danger">{formErrors.email}</Alert>} */}
-                    {/* <span style={{"color":"red", "fontWeight":"600", "fontSize":"0.9rem"}} className="w-100">
+                    <span style={{"color":"red", "fontWeight":"600", "fontSize":"0.9rem"}} className="w-100">
                         {formErrors.email && formErrors.email}
-                    </span> */}
+                    </span>
 
                     <FormGroup className='w-100'>
                         <Label for="examplePhone" className='label'>
@@ -253,6 +254,10 @@ const FormSection = () => {
                         Submit
                     </Button>
                 </div>
+                {Object.keys(formErrors).length === 0 && isSubmit &&
+                    <Alert className="d-flex justify-content-center mt-2">
+                        Ajouté avec succès
+                    </Alert>}
             </Form>
         </Container>
     </section>

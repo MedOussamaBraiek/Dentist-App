@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header/Header';
 import Phone from '../components/Phone/Phone';
-import { Button, Container, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Spinner, Table } from 'reactstrap';
+import { Button, Container, Form, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Spinner, Table } from 'reactstrap';
 
 const PatientsPage = () => {
     const [patients, setPatients] = React.useState(null);
@@ -16,6 +16,18 @@ const PatientsPage = () => {
     const toggle = () => setModal(!modal);
     const toggle1 = () => setModal1(!modal1);
 
+    const [isLoged, setIsLoged] = React.useState(false);
+    const [username, setUserName] = React.useState("");
+    const [password, setPassword] = React.useState("");
+    const [wrong, setWrong] = React.useState(false);
+
+    const handleChangeUserName = (e) => {
+      setUserName(e.target.value);
+    };
+    const handleChangePassword = (e) => {
+      setPassword(e.target.value);
+    };
+
     const handleChangeTime = (e) => {
       setTime(e.target.value);
     };
@@ -24,6 +36,7 @@ const PatientsPage = () => {
     };
 
     React.useEffect(() => {
+        setIsLoged(localStorage.getItem("loged"));
         fetch('http://localhost:5000/patients')
             .then(res => {
                 if (!res.ok) {
@@ -55,6 +68,7 @@ const PatientsPage = () => {
         body: JSON.stringify(t),
       }).then(() => {
         window.location.reload(false);
+        setIsLoged(true);
       });
     };
 
@@ -68,6 +82,31 @@ const PatientsPage = () => {
         },
       }).then(() => {
         window.location.reload(false);
+        setIsLoged(true);
+      });
+    };
+
+    const handleSubmitLogin = (e) => {
+      e.preventDefault();
+      const user = { username: username, password: password };
+
+      fetch(`http://localhost:5000/user/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }).then((res) => {
+          console.log(res);
+          console.log(res.status);
+          if(res.status === 200){
+            setIsLoged(true);
+            localStorage.setItem("loged", true);
+          } else if(res.status === 400){
+            setWrong(true);
+            localStorage.setItem("loged", false);
+          }
+        //window.location.reload(false);
       });
     };
 
@@ -76,7 +115,54 @@ const PatientsPage = () => {
       <Phone />
       <Header />
 
-      <Container style={{"marginTop":"10rem"}}>
+      {!isLoged && <Container style={{"marginTop":"10rem","display":"flex","justifyContent":"center"}}>
+        <div className='login__container'>
+          <h3 className='text-center login__title'>Veuillez vous connecter</h3>
+          <Form className='login__form mb-2 mt-3'
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSubmitLogin(e);
+                  }}
+            >
+              <FormGroup className='w-100'>
+                 <Label for="exampleName" className='label'> 
+                  Nom d'utilisateur
+                 </Label>
+                 <Input
+                  id="exampleName"
+                  name="nom"
+                  placeholder="Tapez votre Nom..."
+                  type="text"
+                  value={username}
+                  onChange={handleChangeUserName}
+                  />
+                </FormGroup>
+                <FormGroup className='w-100'>
+                    <Label for="exampleName" className='label'> 
+                     Mot de passe
+                    </Label>
+                    <Input
+                     id="exampleName"
+                     name="nom"
+                     placeholder="Tapez votre Nom..."
+                     type="text"
+                     value={password}
+                     onChange={handleChangePassword}
+                    />
+                </FormGroup>
+                {wrong && <span style={{"color":"red", "fontWeight":"600", "fontSize":"0.9rem","display":"flex","justifyContent":"center"}}>
+                   Nom d'utilisateur ou mot de passe invalide(s).
+                    </span>}
+                <div className="d-flex justify-content-center">
+                    <Button className='login__button mt-2' type="submit">
+                        Connect
+                    </Button>
+                </div>
+            </Form>
+        </div>
+      </Container>}
+
+      {isLoged && <Container style={{"marginTop":"10rem"}}>
         <h1 className='text-center mb-4' style={{"textDecoration":"underline","color":"#1c2498"}}>Patients</h1>
         <Table striped>
             {error && <h5>Not Found</h5>}
@@ -205,7 +291,7 @@ const PatientsPage = () => {
                 </form>
               </Modal>
 
-      </Container>
+      </Container>}
     </>
   )
 }
