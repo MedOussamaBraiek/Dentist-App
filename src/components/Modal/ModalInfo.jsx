@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "./modal.css";
-import { UilArrowRight, UilMultiply } from "@iconscout/react-unicons";
 
 function ModalInfo(props) {
-  const [modal, setModal] = useState(false);
-
-  const toggle = () => setModal(!modal);
-
   return (
     <>
       <Modal

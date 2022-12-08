@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import ModalInfo from "../Modal/ModalInfo";
 import "./services.css";
 
@@ -13,6 +12,10 @@ import fix1 from "../../assets/images/fix-teeths-1.jpg";
 import fix2 from "../../assets/images/fix-teeths-2.jpg";
 import fix3 from "../../assets/images/fix-teeths-3.jpg";
 
+import prot1 from "../../assets/images/prot-teeths-1.jpg";
+import prot2 from "../../assets/images/prot-teeths-2.jpg";
+import prot3 from "../../assets/images/prot-teeths-3.jpg";
+
 const service1_title = "Nettoyage";
 const p1 =
   "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos optio enim, ex,consequuntur labore dolorum omnis magnam facilis harum quo earum? Optio perferendis cupiditate eum, sint eveniet tempore sit. Cum!";
@@ -24,6 +27,7 @@ const p4 =
   "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos optio enim, ex,consequuntur labore dolorum omnis magnam facilis harum quo earum? Optio perferendis cupiditate eum, sint eveniet tempore sit. Cum!";
 
 const service2_title = "Fixation";
+const service3_title = "Prototypage";
 const Services = () => {
   const [modal, setModal] = React.useState(false);
   const [modal2, setModal2] = React.useState(false);
@@ -69,15 +73,15 @@ const Services = () => {
           />
 
           <ModalInfo
-            modal={modal2}
-            toggle={toggle2}
-            title={service2_title}
+            modal={modal3}
+            toggle={toggle3}
+            title={service3_title}
             p1={p1}
-            img1={fix1}
+            img1={prot1}
             p2={p2}
-            img2={fix2}
+            img2={prot2}
             p3={p3}
-            img3={fix3}
+            img3={prot3}
           />
 
           <Row className="d-flex justify-content-center gap-5">
