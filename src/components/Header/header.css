@@ -141,13 +141,34 @@
   color: #fff !important;
 }
 
+@media screen and (max-width: 1200px) {
+
+  .signup{
+    visibility: hidden;
+  }
+  .signup:after{
+    display: block;
+    background: #4ba4f1;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0 5px;
+    line-height: 25px;
+    text-align: center;
+    color: #fff;
+    visibility: visible;
+    font-size: 0.9rem !important;
+    content: "R-V";
+    margin-top: -3rem;
+  }
+}
+
 .mobile__menu {
   color: #2d3748;
   font-size: 1.3rem;
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 990px) {
   .nav__menu {
     position: fixed;
     top: 0;
@@ -181,10 +202,16 @@
     cursor: pointer;
   }
 
-  .signup {
-    background-color: #fff;
-    color: #2d3748;
-    margin-top: 2rem;
+  .mobile__menu__button{
+    background-color: transparent !important;
+    border: none;
+  }
+
+  .signup:after {
+    margin-top: -1rem;
+    padding: 5px 15px;
+    border-radius: 100px !important;
+    content: "Rendez-Vous";
   }
 
   .signup:hover {
@@ -200,4 +227,11 @@
   margin-top: 0rem !important;
   height: 50px !important;
   width: 180px;
+}
+
+@media screen and (max-width: 600px) {
+  .karim-logo{
+    height: 45px !important;
+    width: 150px;
+  }
 }

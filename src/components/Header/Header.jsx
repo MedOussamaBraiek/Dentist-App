@@ -2,9 +2,7 @@ import React from "react";
 import { Container } from "reactstrap";
 import "./header.css";
 
-// import logo from '../../assets/images/logo.png'
-//import logo_karim from '../../assets/images/logo-karim.png'
-import karim_logo from '../../assets/images/karim-logo.png'
+import karim_logo from '../../assets/images/karim-logo.png';
 
 const NAV__LINKS = [
   {
@@ -20,10 +18,6 @@ const NAV__LINKS = [
     url: "#cabinet",
   },
   {
-    display: "Patients",
-    url: "/patients",
-  },
-  {
     display: "Services",
     url: "#services",
   },
@@ -31,6 +25,10 @@ const NAV__LINKS = [
     display: "Contact",
     url: "#contact",
   },
+  {
+    display: "Patients",
+    url: "/patients",
+  }
 ];
 
 const Header = () => {
@@ -59,14 +57,7 @@ const Header = () => {
       <Container>
         <div className="navigation">
           <div className="logo">
-            {/* <img alt="logo"
-                className="img-fluid" 
-                src="https://img.icons8.com/external-vitaliy-gorbachev-flat-vitaly-gorbachev/58/null/external-teeth-anatomy-vitaliy-gorbachev-flat-vitaly-gorbachev.png"/> */}
             <img className="karim-logo" alt="logo" src={karim_logo} />
-            {/* <h2 className=" d-flex gap-2 align-items-center ">
-                <i class="fas fa-tooth"></i>
-                <span>Dr.Karim Somai</span>
-            </h2> */}
           </div>
 
           <div className="nav__menu" ref={menuRef} onClick={toggleMenu}>
@@ -79,14 +70,16 @@ const Header = () => {
             </ul>
           </div>
 
-          <div>
-            <a href="#form">
-              <button className="signup">Rendez-vous</button>
+            <a className="signup rv-a" href="#form">
+              Rendez-vous
             </a>
-          </div>
           
           <span className="mobile__menu">
-            <i class="ri-menu-line" onClick={toggleMenu}></i>
+            <button onClick={toggleMenu} className="mobile__menu__button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+              </svg>
+            </button>
           </span>
         </div>
       </Container>

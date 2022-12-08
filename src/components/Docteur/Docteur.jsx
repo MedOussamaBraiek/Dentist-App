@@ -17,6 +17,9 @@ const Docteur = () => {
                 </Col>
             
             <Row>
+                <Col lg="5" md="5">
+                    <img alt="bg4" src={karim} className='img-fluid img__docteur'/>
+                </Col>
                 <Col lg="7" md="7" className='docteur__details'>
                     <h2 className='mb-4 mt-3'>Notre clinique est faite pour que vous souriiez tout le temps</h2>
                     <p className='mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsa 
@@ -31,9 +34,6 @@ const Docteur = () => {
                     <a href="/signup">
                         <button className="signup">Rendez-vous</button>
                     </a>
-                </Col>
-                <Col lg="5" md="5">
-                    <img alt="bg4" src={karim} className='img-fluid img__docteur'/>
                 </Col>
             </Row>
             </Row>

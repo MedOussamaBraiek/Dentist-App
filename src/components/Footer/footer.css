@@ -1,0 +1,22 @@
+
+.footer {
+    background-color: #f4f7fe;
+    width: 97% !important;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.list__item a{
+    color: #4ba4f1;
+    text-decoration: none;
+}
+
+.list__item a:hover{
+    color: #1c2498;
+}
+
+.list-group-item{
+    border: none !important;
+    background-color: transparent !important;
+    padding-left: 0px !important;
+}

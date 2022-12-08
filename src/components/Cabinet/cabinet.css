@@ -1,3 +1,15 @@
 .cabinet{
     height: 100vh;
 }
+
+@media only screen and (max-width: 992px){
+    .cabinet{
+        height: auto !important;
+    }
+    #gmap_canvas{
+        display: flex !important;
+        justify-content: center !important;
+        width: 95%;
+        height: 350px;
+    }
+}

@@ -54,7 +54,7 @@ const PatientsPage = () => {
                 
             })
             .catch(err => console.log(err));
-    },[]);
+    },[patients]);
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -67,7 +67,7 @@ const PatientsPage = () => {
         },
         body: JSON.stringify(t),
       }).then(() => {
-        window.location.reload(false);
+        //window.location.reload(false);
         setIsLoged(true);
       });
     };
@@ -81,7 +81,7 @@ const PatientsPage = () => {
           "Content-Type": "application/json",
         },
       }).then(() => {
-        window.location.reload(false);
+       // window.location.reload(false);
         setIsLoged(true);
       });
     };
@@ -131,7 +131,7 @@ const PatientsPage = () => {
                  <Input
                   id="exampleName"
                   name="nom"
-                  placeholder="Tapez votre Nom..."
+                  placeholder="Tapez votre d'utilisateur..."
                   type="text"
                   value={username}
                   onChange={handleChangeUserName}
@@ -144,8 +144,8 @@ const PatientsPage = () => {
                     <Input
                      id="exampleName"
                      name="nom"
-                     placeholder="Tapez votre Nom..."
-                     type="text"
+                     placeholder="Tapez votre mot de passe..."
+                     type="password"
                      value={password}
                      onChange={handleChangePassword}
                     />
@@ -253,7 +253,7 @@ const PatientsPage = () => {
                     </FormGroup>
                   </ModalBody>
                   <ModalFooter>
-                    <Button color="success" type="submit" onClick={() => {toggle();window.location.reload(false)}}>
+                    <Button color="success" type="submit" onClick={() => {toggle()}}>
                       Editer
                     </Button>{" "}
                     <Button className='button3' color="secondary" onClick={toggle}>
@@ -281,7 +281,7 @@ const PatientsPage = () => {
                     <h5>Êtes-vous sûr de vouloir supprimer ce Patient</h5>
                   </ModalBody>
                   <ModalFooter>
-                    <Button className='button3' color="success" type="submit" onClick={() => {toggle1();window.location.reload(false)}}>
+                    <Button className='button3' color="success" type="submit" onClick={() => {toggle1()}}>
                       Supprimer
                     </Button>{" "}
                     <Button color="secondary" onClick={toggle1}>

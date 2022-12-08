@@ -57,7 +57,7 @@ const FormSection = () => {
     if (!values.lastName) {
       errors.lastName = "Le Prénom est Obligatoire!";
     }
-    if (!values.email.match(mailformat)) {
+    if (!values.email.match(mailformat) && values.name) {
       errors.email = "Mauvais format!";
     }
     if (!values.phone) {

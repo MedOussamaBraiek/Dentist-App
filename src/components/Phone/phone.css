@@ -1,0 +1,45 @@
+
+.scrolling{
+  width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+  .hide{
+    display: none;
+  }
+  .phone-animation{
+    width: 100% !important;
+  }
+  .scrolling{
+    position: relative;
+    overflow: hidden;
+  }
+  .scrolling-text{
+    position: absolute;
+    width: 100%;
+    transform: translateX(100%);
+    animation: scrolling 10s linear infinite;
+  }
+
+  @keyframes scrolling {
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+  }
+}
+
+@media only screen and (max-width: 608px){
+    .scrolling-text{
+        margin-top: -0.4rem;
+      }
+}
+
+@media only screen and (min-width: 802px) and (max-width: 1260px){
+  .scrolling-text{
+      margin-top: -0.4rem;
+    }
+}
+

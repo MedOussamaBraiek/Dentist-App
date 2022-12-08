@@ -118,5 +118,12 @@
   }
   
   .services{
-    height: 100vh;
+    height: auto;
+  }
+
+  .teeths{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }

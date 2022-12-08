@@ -4,12 +4,18 @@
     padding: 20px 0px;
 }
 .form{
-    width: 40% !important; 
+    width: 45% !important; 
     background-color: #fff;
     padding: 15px 30px;
     border-radius: 15px;
     
 }
+
+@media screen and (max-width: 992px){
+    .form{
+        width:70% !important;
+    }
+} 
 .formContainer{
     display: flex !important;
     justify-content: center !important;

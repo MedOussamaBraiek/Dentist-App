@@ -14,10 +14,10 @@ const Cabinet = () => {
                 </Col>
                 <Row>
                     
-                    <Col lg="6">
+                    <Col lg="8">
                         <iframe title="map" width="600" height="450" id="gmap_canvas" src="https://maps.google.com/maps?q=36.812216,%2010.180049&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                     </Col>
-                    <Col lg="5" >
+                    <Col lg="4" >
                         <div className='ml-5'>
                             <h5 className='mt-4'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1c2498" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
