@@ -84,7 +84,7 @@ const Services = () => {
             img3={prot3}
           />
 
-          <Row className="d-flex justify-content-center gap-5">
+          <Row className="d-flex justify-content-center gap-5 services__content">
             <Col lg="3">
               <div className="card">
                 <div className="card-body">
