@@ -82,3 +82,9 @@ Button{
     color: #fff !important;
     font-weight: 600 !important;
 }
+
+@media screen and (max-width: 450px) {
+    .form__title h3{
+        font-size: 1.5rem;
+    }
+}
