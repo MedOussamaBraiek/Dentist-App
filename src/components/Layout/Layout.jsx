@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import Form from "../Form/FormSection";
 import Header from "../Header/Header";
 import Phone from "../Phone/Phone";
+import ScrollButton from "../ScrollButton/ScrollButton";
 import Services from "../Services/Services";
 import Swiper from "../Swiperr/Swiperr";
 
@@ -21,6 +22,7 @@ const Layout = () => {
       <Form />
       <Cabinet />
       <Footer />
+      <ScrollButton />
     </>
   );
 };

@@ -16,7 +16,7 @@ const Cabinet = () => {
             </div>
           </Col>
           <Row>
-            <Col lg="6">
+            <Col lg="7">
               <iframe
                 title="map"
                 width="600"
@@ -29,7 +29,8 @@ const Cabinet = () => {
                 marginwidth="0"
               ></iframe>
             </Col>
-            <Col lg="5">
+            <Col lg="1"></Col>
+            <Col lg="4">
               <div className="ml-5">
                 <h5 className="mt-4">
                   <svg
