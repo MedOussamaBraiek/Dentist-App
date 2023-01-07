@@ -120,13 +120,16 @@ const FormSection = () => {
     return errors;
   };
 
+  const { REACT_APP_BACKEND_URL } = process.env;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     e.target.reset();
     setFormErrors(validate(formData));
     if (Object.keys(formErrors).length === 0) {
       const patient = { name, lastName, email, phone, message, date };
-      fetch(`http://localhost:5000/patients/add`, {
+      //fetch(`http://localhost:5000/patients/add`, {
+      fetch(`${REACT_APP_BACKEND_URL}/patients/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -134,7 +137,6 @@ const FormSection = () => {
         },
         body: JSON.stringify(patient),
       }).then((res) => {
-        console.log(res);
         if (res.status === 200) {
           setName("");
           setLastName("");
@@ -154,7 +156,6 @@ const FormSection = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(entry.isIntersecting);
           entry.target.classList.add("show-form");
         } else {
           entry.target.classList.remove("show-form");

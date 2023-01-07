@@ -48,8 +48,10 @@ const PatientsPage = () => {
     setDate(e.target.value);
   };
 
+  const { REACT_APP_BACKEND_URL } = process.env;
+
   React.useEffect(() => {
-    fetch("http://localhost:5000/patients")
+    fetch(`${REACT_APP_BACKEND_URL}/patients`)
       .then((res) => {
         if (!res.ok) {
           setError(true);
@@ -69,7 +71,7 @@ const PatientsPage = () => {
     e.preventDefault();
     const t = { time: time, date: date };
 
-    fetch(`http://localhost:5000/patients/update${selected}`, {
+    fetch(`${REACT_APP_BACKEND_URL}/patients/update${selected}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -84,7 +86,7 @@ const PatientsPage = () => {
   const handleDelete = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:5000/patients/${selected}`, {
+    fetch(`${REACT_APP_BACKEND_URL}/patients/${selected}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -100,15 +102,13 @@ const PatientsPage = () => {
     setIsLoged(false);
     const user = { username: username, password: password };
 
-    await fetch(`http://localhost:5000/user/login`, {
+    await fetch(`${REACT_APP_BACKEND_URL}/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     }).then(async (res) => {
-      console.log(res);
-      console.log(res.status);
       if (res.status === 200) {
         setWrong(false);
         setIsLoged(true);
@@ -116,9 +116,7 @@ const PatientsPage = () => {
       } else if (res.status === 400) {
         setWrong(true);
         await setIsLoged(false);
-        console.log(isLoged);
         localStorage.setItem("logged", false);
-        console.log(localStorage.getItem("logged"));
       }
       //window.location.reload(false);
     });
