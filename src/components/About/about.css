@@ -21,3 +21,23 @@
         font-size: 2.5rem;
     }
 }
+
+.about-text{
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(5px);
+    transform: translateX(-100%);
+  }
+
+  .about-img{
+    opacity: 0;
+    transition: all 2s;
+    filter: blur(5px);
+    transform: translateX(100%);
+  }
+
+  .show-about-text{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }

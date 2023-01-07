@@ -150,6 +150,26 @@ const FormSection = () => {
     }
   };
 
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log(entry.isIntersecting);
+          entry.target.classList.add("show-form");
+        } else {
+          entry.target.classList.remove("show-form");
+        }
+      });
+    });
+
+    const hiddenFormElements = document.querySelectorAll(".formContainer");
+
+    hiddenFormElements.forEach((el) => observer.observe(el));
+
+    const headerFormElements = document.querySelectorAll(".form__title");
+    headerFormElements.forEach((el) => observer.observe(el));
+  });
+
   return (
     <section className="formSection" id="form">
       <div className="form__title d-flex align-items-center justify-content-center">

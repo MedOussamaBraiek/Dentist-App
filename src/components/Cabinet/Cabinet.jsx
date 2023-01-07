@@ -3,6 +3,22 @@ import { Col, Container, Row } from "reactstrap";
 import "./cabinet.css";
 
 const Cabinet = () => {
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log(entry.isIntersecting);
+          entry.target.classList.add("show-cabinet");
+        } else {
+          entry.target.classList.remove("show-cabinet");
+        }
+      });
+    });
+    const hiddenMap = document.querySelectorAll(".map");
+
+    hiddenMap.forEach((el) => observer.observe(el));
+  });
+
   return (
     <section className="cabinet" id="contact">
       <Container>
@@ -16,7 +32,7 @@ const Cabinet = () => {
             </div>
           </Col>
           <Row>
-            <Col lg="7">
+            <Col lg="6" className="map">
               <iframe
                 title="map"
                 width="600"
@@ -30,7 +46,7 @@ const Cabinet = () => {
               ></iframe>
             </Col>
             <Col lg="1"></Col>
-            <Col lg="4">
+            <Col lg="5">
               <div className="ml-5">
                 <h5 className="mt-4">
                   <svg

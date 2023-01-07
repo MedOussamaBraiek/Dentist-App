@@ -88,3 +88,21 @@ Button{
         font-size: 1.5rem;
     }
 }
+
+.form__title{
+    opacity: 0;
+    transition: all 1s;
+    scale:0;
+  }
+.formContainer{
+    opacity: 0;
+    scale:0;
+    transition: all 2s;
+  }
+
+  .show-form{
+    scale:1;
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }

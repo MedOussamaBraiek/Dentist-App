@@ -20,3 +20,23 @@
         justify-content: center;
     }
 }
+
+.doctor-text{
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(5px);
+    transform: translateX(100%);
+  }
+
+  .doctor-img{
+    opacity: 0;
+    transition: all 2s;
+    filter: blur(5px);
+    transform: translateX(-100%);
+  }
+
+  .show-doctor-text{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }

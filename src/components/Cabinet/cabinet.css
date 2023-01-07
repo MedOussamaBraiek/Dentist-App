@@ -13,3 +13,16 @@
         height: 350px;
     }
 }
+
+.map{
+    opacity: 0;
+    transition: all 1s;
+    scale: 0;
+  }
+
+  .show-cabinet{
+    scale: 1;
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }

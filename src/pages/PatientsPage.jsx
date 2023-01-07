@@ -49,7 +49,6 @@ const PatientsPage = () => {
   };
 
   React.useEffect(() => {
-    setIsLoged(localStorage.getItem("loged"));
     fetch("http://localhost:5000/patients")
       .then((res) => {
         if (!res.ok) {
@@ -96,25 +95,30 @@ const PatientsPage = () => {
     });
   };
 
-  const handleSubmitLogin = (e) => {
+  const handleSubmitLogin = async (e) => {
     e.preventDefault();
+    setIsLoged(false);
     const user = { username: username, password: password };
 
-    fetch(`http://localhost:5000/user/login`, {
+    await fetch(`http://localhost:5000/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
-    }).then((res) => {
+    }).then(async (res) => {
       console.log(res);
       console.log(res.status);
       if (res.status === 200) {
+        setWrong(false);
         setIsLoged(true);
-        localStorage.setItem("loged", true);
+        localStorage.setItem("logged", true);
       } else if (res.status === 400) {
         setWrong(true);
-        localStorage.setItem("loged", false);
+        await setIsLoged(false);
+        console.log(isLoged);
+        localStorage.setItem("logged", false);
+        console.log(localStorage.getItem("logged"));
       }
       //window.location.reload(false);
     });
@@ -124,7 +128,6 @@ const PatientsPage = () => {
     <>
       <Phone />
       <Header />
-
       {!isLoged && (
         <Container
           style={{
@@ -192,7 +195,6 @@ const PatientsPage = () => {
           </div>
         </Container>
       )}
-
       {isLoged && (
         <Container style={{ marginTop: "10rem" }}>
           <h1

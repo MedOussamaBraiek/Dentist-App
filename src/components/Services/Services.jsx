@@ -36,6 +36,27 @@ const Services = () => {
   const toggle = () => setModal(!modal);
   const toggle2 = () => setModal2(!modal2);
   const toggle3 = () => setModal3(!modal3);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log(entry.isIntersecting);
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    const headerElements = document.querySelectorAll(".about__title");
+    headerElements.forEach((el) => observer.observe(el));
+  });
+
   return (
     <section className="about services" id="services">
       <Container>
@@ -85,8 +106,8 @@ const Services = () => {
           />
 
           <Row className="d-flex justify-content-center gap-5 services__content">
-            <Col lg="3">
-              <div className="card">
+            <Col lg="3" className="hidden">
+              <div className="card ">
                 <div className="card-body">
                   <h1>Nettoyage</h1>
                   <h2>Master the web layouts and grid system.</h2>
@@ -108,8 +129,8 @@ const Services = () => {
                 </div>
               </div>
             </Col>
-            <Col lg="3">
-              <div className="card">
+            <Col lg="3" className="hidden">
+              <div className="card ">
                 <div className="card-body">
                   <h1>Fixation</h1>
                   <h2>Master the web layouts and grid system.</h2>
@@ -131,8 +152,8 @@ const Services = () => {
                 </div>
               </div>
             </Col>
-            <Col lg="3">
-              <div className="card">
+            <Col lg="3" className="hidden">
+              <div className="card ">
                 <div className="card-body">
                   <h1>Prototypage</h1>
                   <h2>Master the web layouts and grid system.</h2>
