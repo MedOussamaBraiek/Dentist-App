@@ -135,10 +135,13 @@
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
+  transition: all 0.2s;
 }
 
-.signup__text:hover {
+.signup:hover {
   color: #fff !important;
+  text-decoration: none;
+  scale: 1.1;
 }
 
 @media screen and (max-width: 1200px) {

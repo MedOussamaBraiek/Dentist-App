@@ -14,7 +14,9 @@ import {
   ModalHeader,
   Spinner,
   Table,
+  Alert,
 } from "reactstrap";
+import Calendar from "../components/Calendar/Calendarr";
 
 const PatientsPage = () => {
   const [patients, setPatients] = React.useState(null);
@@ -23,13 +25,26 @@ const PatientsPage = () => {
 
   const [modal, setModal] = React.useState(false);
   const [modal1, setModal1] = React.useState(false);
+
+  const [name, setName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [phone, setPhone] = React.useState("");
   const [time, setTime] = React.useState(null);
   const [date, setDate] = React.useState(null);
+  const [formData, setData] = React.useState({
+    name: "",
+    lastName: "",
+    phone: "",
+    date: null,
+    time: null,
+  });
+  const [showForm, setShowForm] = React.useState(false);
+
   const [selected, setSelected] = React.useState(null);
   const toggle = () => setModal(!modal);
   const toggle1 = () => setModal1(!modal1);
 
-  const [isLoged, setIsLoged] = React.useState(false);
+  const [isLoged, setIsLoged] = React.useState(true);
   const [username, setUserName] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [wrong, setWrong] = React.useState(false);
@@ -120,6 +135,74 @@ const PatientsPage = () => {
       }
       //window.location.reload(false);
     });
+  };
+
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+    setData({ ...formData, name: e.target.value });
+    // if (!e.target.value) {
+    //   //errors.name = "Le Nom est Obligatoire !";
+    //   setFormErrors({ ...errors, name: "Le Nom est Obligatoire !" });
+  };
+
+  const handleChangeLastName = (e) => {
+    setLastName(e.target.value);
+    setData({ ...formData, lastName: e.target.value });
+    // if (!e.target.value) {
+    //   ///errors.lastName = "Le Prénom est Obligatoire!";
+    //   setFormErrors({ ...errors, lastName: "Le Prénom est Obligatoire!" });
+    // } else {
+    //   setFormErrors({ ...errors });
+    // }
+  };
+
+  const handleChangePhone = (e) => {
+    setPhone(e.target.value);
+    setData({ ...formData, phone: e.target.value });
+    // if (!e.target.value) {
+    //   //errors.phone = "Le Numéro de téléphone est Obligatoire!";
+    //   setFormErrors({
+    //     ...errors,
+    //     phone: "Le Numéro de téléphone est Obligatoire!",
+    //   });
+    // } else if (e.target.value.length !== 8) {
+    //   //errors.phone = "Le Numéro doit être 8 chiffres!";
+    //   setFormErrors({
+    //     ...errors,
+    //     phone: "Le Numéro de téléphone est Obligatoire!",
+    //   });
+    // } else {
+    //   setFormErrors({ ...errors });
+    // }
+  };
+
+  const handleSubmitAppointment = (e) => {
+    e.preventDefault();
+    e.target.reset();
+    //setFormErrors(validate(formData));
+    //if (Object.keys(formErrors).length === 0) {
+    const appointment = { name, lastName, phone, date };
+    //fetch(`http://localhost:5000/patients/add`, {
+    fetch(`${REACT_APP_BACKEND_URL}/appointments/add`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify(appointment),
+    }).then((res) => {
+      if (res.status === 200) {
+        setName("");
+        setLastName("");
+        setPhone("");
+        setDate(null);
+        setTime(null);
+        //setIsSubmit(true);
+      }
+    });
+    // } else {
+    //   console.log("Error!");
+    // }
   };
 
   return (
@@ -372,6 +455,10 @@ const PatientsPage = () => {
           </Modal>
         </Container>
       )}
+
+      <Container>
+        <Calendar />
+      </Container>
     </>
   );
 };
